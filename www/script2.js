@@ -27,8 +27,7 @@ var city;
                 latitude=place.geometry.location.lat(),
                 longitude=place.geometry.location.lng()
             
-        
-            
+          
  })
     }
     
@@ -79,23 +78,9 @@ function process()
             }
             var city=document.Details.searchBar.value; 
                 if(city!='')
-                    {   var s=document.getElementById('list');
+                    {    var s=document.getElementById('list');
                              var i=s.options[s.selectedIndex].value;
                          
-                        /* if(i==7)
-                             {
-                                 document.styleSheets[0].disabled=true;
-                                 
-                                 // document.styleSheets[1].disabled=false;
-                                 console.log(document.styleSheets[0].disabled);console.log(document.styleSheets[1].disabled);
-                             }else{
-                                 //document.styleSheets[0].disabled=false;
-                                  document.styleSheets[1].disabled=false;
-                                
-                               console.log(document.styleSheets[0].disabled);
-                                 console.log(document.styleSheets[1].disabled);
-                             } */
-        
                        
                      let api=`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
                             fetch(api)
@@ -116,7 +101,7 @@ function process()
                             })
                             .catch(function(err){
                                 console.log(err);
-                                //alert("Enter correctly");
+                                alert("Please enter correctly");
                             });
                          
                         
@@ -213,148 +198,149 @@ function process()
 
                                      if(i==7)
                                          { 
-var stylesheet = document.getElementById('style1').disabled=true;
+                                        var stylesheet = document.getElementById('style1').disabled=true;
 
-    if(flag==0)
-        {
-       // document.styleSheets[1].remove();
- var link = document.createElement('link');  
-   link.rel = 'stylesheet';  
-    link.type = 'text/css'; 
-     link.href = 'style.css'; 
-    link.id='style';
-    document.getElementsByTagName('HEAD')[0].appendChild(link);
-        }else{
-            var stylesheet = document.getElementById('style').disabled=false;
-        }
-        flag=1;
-      //  flag=1;
-        //document.styleSheets[2].disabled=true;
-       console.log(document.styleSheets[1]);
-        console.log(document.styleSheets[0]);
-    
+                                            if(flag==0)
+                                                {
+                                               // document.styleSheets[1].remove();
+                                         var link = document.createElement('link');  
+                                           link.rel = 'stylesheet';  
+                                            link.type = 'text/css'; 
+                                             link.href = 'style.css'; 
+                                            link.id='style';
+                                            document.getElementsByTagName('HEAD')[0].appendChild(link);
+                                                }else{
+                                                    var stylesheet = document.getElementById('style').disabled=false;
+                                                }
+                                                flag=1;
+                                              //  flag=1;
+                                                //document.styleSheets[2].disabled=true;
+                                              /* console.log(document.styleSheets[1]);
+                                                console.log(document.styleSheets[0]); */
 
-            
-    
-fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`,
-                                    
-  )
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(response) {
-      // day 1
-       iconElement1.innerHTML=`<img src="icons/${weather.iconID}.png"/>`;
-           tempElement1.innerHTML=`${weather.temperature.value}° <span>C</span>`;
-           descElement1.innerHTML=weather.description;
-           iconday1.innerHTML=dayAbbrv(0);
-       let ic = response.list[2].weather[0].icon;
-        iconElement2.innerHTML=`<img src="icons/${ic}.png"/>`;
-        tempElement2.innerHTML=Math.floor(response.list[2].main.temp-K)+`° <span>C</span>`;
-        descElement2.innerHTML=response.list[2].weather[0].description;
-        iconday2.innerHTML=dayAbbrv(1);
-       ic1=ic;
-        ic = response.list[10].weather[0].icon;
-        iconElement3.innerHTML=`<img src="icons/${ic}.png"/>`;
-        tempElement3.innerHTML=Math.floor(response.list[10].main.temp-K)+`° <span>C</span>`;
-        descElement3.innerHTML=response.list[10].weather[0].description;
-    iconday3.innerHTML=dayAbbrv(2);
-      
-       ic = response.list[18].weather[0].icon;
-        iconElement.innerHTML=`<img src="icons/${ic}.png"/>`;
-        tempElement.innerHTML=Math.floor(response.list[18].main.temp-K)+`° <span>C</span>`;
-        descElement.innerHTML=response.list[18].weather[0].description;
-       daycElement.innerHTML=dayAbbrv(3);
-      
-       ic = response.list[26].weather[0].icon;
-        iconElement4.innerHTML=`<img src="icons/${ic}.png"/>`;
-        tempElement4.innerHTML=Math.floor(response.list[26].main.temp-K)+`° <span>C</span>`;
-        descElement4.innerHTML=response.list[26].weather[0].description;
-       iconday4.innerHTML=dayAbbrv(4);  
-    
-       ic = response.list[34].weather[0].icon;
-        iconElement5.innerHTML=`<img src="icons/${ic}.png"/>`;
-        tempElement5.innerHTML=Math.floor(response.list[34].main.temp-K)+`° <span>C</span>`;
-        descElement5.innerHTML=response.list[34].weather[0].description;
-       iconday5.innerHTML=dayAbbrv(5);  
-    
-    ic = response.list[36].weather[0].icon;
-        iconElement6.innerHTML=`<img src="icons/${ic}.png"/>`;
-        tempElement6.innerHTML=Math.floor(response.list[36].main.temp-K)+`° <span>C</span>`;
-        descElement6.innerHTML=response.list[36].weather[0].description;
-       iconday6.innerHTML=dayAbbrv(6);  
-})
-    .catch(function(err) {
-      console.log(err);
-    });
 
-                                             
-                                             
-            }
-               if(i!=7)
-                {  
-                    
-            //document.styleSheets[0].disabled=true;
- if(flag==1)                    
-var stylesheet = document.getElementById('style').disabled=true;
-    var stylesheet = document.getElementById('style1').disabled=false;
-                    
-                    if(tempElement1.innerHTML != '')
-                   iconElement1.removeChild(iconElement1.childNodes[0]); 
-                    console.log(iconElement1.innerHTML);
-                   tempElement1.innerHTML ='';
-                    descElement1.innerHTML='';
-                    iconday1.innerHTML='';
-                     if(tempElement2.innerHTML != '')
-                    iconElement2.removeChild(iconElement2.childNodes[0]); 
-                   
-                    iconElement2.innnerHTML =''; 
-                   tempElement2.innerHTML ='';
-                    descElement2.innerHTML='';
-                    iconday2.innerHTML='';
-                     if(tempElement3.innerHTML != '')
-                    iconElement3.removeChild(iconElement3.childNodes[0]); 
-                   
-                    iconElement3.innnerHTML =''; 
-                   tempElement3.innerHTML ='';
-                    descElement3.innerHTML='';
-                    iconday3.innerHTML='';
-                     if(tempElement4.innerHTML != '')
-                    iconElement4.removeChild(iconElement4.childNodes[0]); 
-                   
-                    iconElement4.innnerHTML =''; 
-                   tempElement4.innerHTML ='';
-                    descElement4.innerHTML='';
-                    iconday4.innerHTML='';
-                     if(tempElement5.innerHTML != '')
-                    iconElement5.removeChild(iconElement5.childNodes[0]); 
-                   
-                    iconElement5.innnerHTML =''; 
-                   tempElement5.innerHTML ='';
-                    descElement5.innerHTML='';
-                    iconday5.innerHTML='';
-                     if(tempElement6.innerHTML != '')
-                    iconElement6.removeChild(iconElement6.childNodes[0]); 
-                   
-                    iconElement6.innnerHTML =''; 
-                   tempElement6.innerHTML ='';
-                    descElement6.innerHTML='';
-                    iconday6.innerHTML='';
-                }
-                                        
 
-                                     })
-                                    .catch(function(err) {
-                                        console.log(err);
-                                      //alert("Enter correctly");
-                                     });
-                                 
-                    }
-                     
-                     
-                     
-                    
+
+                                        fetch(
+                                            `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}`,
+
+                                          )
+                                            .then(function(response) {
+                                              return response.json();
+                                            })
+                                            .then(function(response) {
+                                              // day 1
+                                               iconElement1.innerHTML=`<img src="icons/${weather.iconID}.png"/>`;
+                                                   tempElement1.innerHTML=`${weather.temperature.value}° <span>C</span>`;
+                                                   descElement1.innerHTML=weather.description;
+                                                   iconday1.innerHTML=dayAbbrv(0);
+                                               let ic = response.list[2].weather[0].icon;
+                                                iconElement2.innerHTML=`<img src="icons/${ic}.png"/>`;
+                                                tempElement2.innerHTML=Math.floor(response.list[2].main.temp-K)+`° <span>C</span>`;
+                                                descElement2.innerHTML=response.list[2].weather[0].description;
+                                                iconday2.innerHTML=dayAbbrv(1);
+                                               ic1=ic;
+                                                ic = response.list[10].weather[0].icon;
+                                                iconElement3.innerHTML=`<img src="icons/${ic}.png"/>`;
+                                                tempElement3.innerHTML=Math.floor(response.list[10].main.temp-K)+`° <span>C</span>`;
+                                                descElement3.innerHTML=response.list[10].weather[0].description;
+                                            iconday3.innerHTML=dayAbbrv(2);
+
+                                               ic = response.list[18].weather[0].icon;
+                                                iconElement.innerHTML=`<img src="icons/${ic}.png"/>`;
+                                                tempElement.innerHTML=Math.floor(response.list[18].main.temp-K)+`° <span>C</span>`;
+                                                descElement.innerHTML=response.list[18].weather[0].description;
+                                               daycElement.innerHTML=dayAbbrv(3);
+
+                                               ic = response.list[26].weather[0].icon;
+                                                iconElement4.innerHTML=`<img src="icons/${ic}.png"/>`;
+                                                tempElement4.innerHTML=Math.floor(response.list[26].main.temp-K)+`° <span>C</span>`;
+                                                descElement4.innerHTML=response.list[26].weather[0].description;
+                                               iconday4.innerHTML=dayAbbrv(4);  
+
+                                               ic = response.list[34].weather[0].icon;
+                                                iconElement5.innerHTML=`<img src="icons/${ic}.png"/>`;
+                                                tempElement5.innerHTML=Math.floor(response.list[34].main.temp-K)+`° <span>C</span>`;
+                                                descElement5.innerHTML=response.list[34].weather[0].description;
+                                               iconday5.innerHTML=dayAbbrv(5);  
+
+                                            ic = response.list[36].weather[0].icon;
+                                                iconElement6.innerHTML=`<img src="icons/${ic}.png"/>`;
+                                                tempElement6.innerHTML=Math.floor(response.list[36].main.temp-K)+`° <span>C</span>`;
+                                                descElement6.innerHTML=response.list[36].weather[0].description;
+                                               iconday6.innerHTML=dayAbbrv(6);  
+                                        })
+                                            .catch(function(err) {
+                                              console.log(err);
+                                            alert("Please enter correctly");
+                                            });
+
+
+
+                                                    }
+                                                       if(i!=7)
+                                                        {  
+
+                                                    //document.styleSheets[0].disabled=true;
+                                         if(flag==1)                    
+                                        var stylesheet = document.getElementById('style').disabled=true;
+                                            var stylesheet = document.getElementById('style1').disabled=false;
+
+                                                            if(tempElement1.innerHTML != '')
+                                                           iconElement1.removeChild(iconElement1.childNodes[0]); 
+                                                            console.log(iconElement1.innerHTML);
+                                                           tempElement1.innerHTML ='';
+                                                            descElement1.innerHTML='';
+                                                            iconday1.innerHTML='';
+                                                             if(tempElement2.innerHTML != '')
+                                                            iconElement2.removeChild(iconElement2.childNodes[0]); 
+
+                                                            iconElement2.innnerHTML =''; 
+                                                           tempElement2.innerHTML ='';
+                                                            descElement2.innerHTML='';
+                                                            iconday2.innerHTML='';
+                                                             if(tempElement3.innerHTML != '')
+                                                            iconElement3.removeChild(iconElement3.childNodes[0]); 
+
+                                                            iconElement3.innnerHTML =''; 
+                                                           tempElement3.innerHTML ='';
+                                                            descElement3.innerHTML='';
+                                                            iconday3.innerHTML='';
+                                                             if(tempElement4.innerHTML != '')
+                                                            iconElement4.removeChild(iconElement4.childNodes[0]); 
+
+                                                            iconElement4.innnerHTML =''; 
+                                                           tempElement4.innerHTML ='';
+                                                            descElement4.innerHTML='';
+                                                            iconday4.innerHTML='';
+                                                             if(tempElement5.innerHTML != '')
+                                                            iconElement5.removeChild(iconElement5.childNodes[0]); 
+
+                                                            iconElement5.innnerHTML =''; 
+                                                           tempElement5.innerHTML ='';
+                                                            descElement5.innerHTML='';
+                                                            iconday5.innerHTML='';
+                                                             if(tempElement6.innerHTML != '')
+                                                            iconElement6.removeChild(iconElement6.childNodes[0]); 
+
+                                                            iconElement6.innnerHTML =''; 
+                                                           tempElement6.innerHTML ='';
+                                                            descElement6.innerHTML='';
+                                                            iconday6.innerHTML='';
+                                                        }
+
+
+                                                                             })
+                                                                            .catch(function(err) {
+                                                                                console.log(err);
+                                                                              alert("Please enter correctly");
+                                                                             });
+
+                                                            }
+
+
+
+
 
                      
                      
@@ -362,7 +348,7 @@ var stylesheet = document.getElementById('style').disabled=true;
                     }
 
                     else
-                    {
+                    { alert("City name not found");
                     console.log("no data");
                      }
 
